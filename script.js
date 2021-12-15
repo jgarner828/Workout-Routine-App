@@ -1,3 +1,5 @@
+
+
 // list of variables needed for program....
 
 let name = '';   // user name 
@@ -19,6 +21,19 @@ let exercise = {
     increment: 5, // how many pounds to add each time object is called
     frequency: [false, false, false, false, false, false, false] // days which you train Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 }
+
+
+
+$("#myModal").modal()
+
+$('.close').click(function() {
+    $( "#myModal" ).hide();
+});
+
+
+
+
+
 
 /* methods outline .....
 
