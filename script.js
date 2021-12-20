@@ -1,12 +1,3 @@
-
-
-// list of variables needed for program....
-
-let name = '';   // user name 
-let programLength = 8;  // how many weeks the program will run. default is 8 weeks
-let programExercises = []; // array holding all of the exercise objects in the program.
-
-
 // need to look at calendar libraries and saving the dates
 // 
 // 
@@ -14,23 +5,30 @@ let programExercises = []; // array holding all of the exercise objects in the p
 
 // sample exercise object.... 
 let exercise = {
-    name: "exercise name",  // name of the exercise
-    startWeight: 0,  // starting weight of the exercise
+    name: "Squat",  // name of the exercise
+    startWeight: 100,  // starting weight of the exercise
     reps: 4, // rep scheme.... default is 5.
     sets: 3, // how many times each lift is supposed to be performed
-    increment: 5, // how many pounds to add each time object is called
-    frequency: [false, false, false, false, false, false, false] // days which you train Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    increment: 10, // how many pounds to add each time object is called
+    frequency: ["Mon", "Wed", "Fri"] // days which you train Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 }
 
 
 
-$("#myModal").modal()
+// When you click on Program Details
+$('.programDetails').click( () => {
+    $('.programMainContainer').removeClass('visually-hidden');
+    $('.programOptionsContainer').addClass('visually-hidden');
+    $('.displayWeek').addClass('visually-hidden');
+})
 
-$('.close').click(function() {
-    $( "#myModal" ).hide();
-});
 
-
+//when you click on Add Exercise...
+$('.exerciseBtn').click( () => {
+    $('.addExerciseContainer').removeClass('visually-hidden');
+    $('.displayWeek').addClass('visually-hidden');
+    $('.programOptionsContainer').addClass('visually-hidden');
+})
 
 
 
