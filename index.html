@@ -35,13 +35,13 @@
         <form class='mb-1'>
             <div class="mb-3">
               <label for="userName" class="form-label">Name</label>
-              <input type="text" class="userName form-control" id="userName" default-text='Name'>
+              <input type="text" class="userName form-control" id="userName" default-text='Name' required>
 
             </div>
 
             <div class="mb-3">
               <label for="weeks" class="form-label">How many weeks</label>
-              <input type="number" class="programLength form-control" id="programLength" min='0'>
+              <input type="number" class="programLength form-control" id="programLength" min='0' required>
             </div>
 
             <button type="submit" class="submitProgram btn btn-primary">Submit</button>
@@ -101,47 +101,64 @@
         <form class='d-flex flex-column'>
             <div class="mb-3">
               <label for="exerciseName" class="form-label">Exercise Name</label>
-              <input type="text" class="form-control" id="exerciseName">
+              <input type="text" class="exerciseName form-control" id="exerciseName" required>
             </div>
 
             <div class="mb-3 w-100">
-              <label for="programLength" class="form-label">How many weeks</label>
-              <input type="number" class="form-control" id="programLength" min='1'>
+              <label for="startWeight" class="form-label">Starting Weight</label>
+              <input type="number" class="startWeight form-control" id="startWeight" min='1' step='5' placeholder='Must be in increments of 5 lbs' required>
+            </div>
+
+            <div class="mb-3 w-100">
+              <label for="programReps" class="form-label">Reps</label>
+              <input type="number" class="programReps form-control" id="programReps" min='1' required>
+            </div>
+
+            <div class="mb-3 w-100">
+              <label for="programSets" class="form-label">Sets</label>
+              <input type="number" class="programSets form-control" id="programSets" min='1' required>
+            </div>
+
+            <div class="mb-3 w-100">
+              <label for="programIncrement" class="form-label">Increment</label>
+              <input type="number" class="programIncrement form-control" id="programIncrement" min='1' step='5' placeholder='Must be in increments of 5 lbs' required>
             </div>
 
             <div class='weeksBoxes w-100 d-flex flex-row'>
                 <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="SundayChk">
+                <input type="checkbox" class="SundayChk form-check-input" id="SundayChk">
                 <label class="form-check-label" for="SundayChk">Sunday</label>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="MondayChk">
+                    <input type="checkbox" class=" MondayChk form-check-input" id="MondayChk">
                     <label class="form-check-label" for="MondayChk">Monday</label>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="TuesdayChk">
+                    <input type="checkbox" class="TuesdayChk form-check-input" id="TuesdayChk">
                     <label class="form-check-label" for="TuesdayChk">Tuesday</label>
                 </div>
                 <div class="mb-3 form-check ">
-                    <input type="checkbox" class="form-check-input" id="WednesdayChk">
+                    <input type="checkbox" class="WednesdayChk form-check-input" id="WednesdayChk">
                     <label class="form-check-label" for="WednesdayChk">Wednesday</label>
                 </div>
                 <div class="mb-3 form-check ">
-                    <input type="checkbox" class="form-check-input" id="ThursdayChk">
+                    <input type="checkbox" class="ThursdayChk form-check-input" id="ThursdayChk">
                     <label class="form-check-label" for="ThursdayChk">Thursday</label>
                 </div>
                 <div class="mb-3 form-check ">
-                    <input type="checkbox" class="form-check-input" id="FridayChk">
+                    <input type="checkbox" class="FridayChk form-check-input" id="FridayChk">
                     <label class="form-check-label" for="FridayChk">Friday</label>
                 </div>
                 <div class="mb-3 form-check ">
-                    <input type="checkbox" class="form-check-input" id="SaturdayChk">
+                    <input type="checkbox" class="SaturdayChk form-check-input" id="SaturdayChk">
                     <label class="form-check-label" for="SaturdayChk">Saturday</label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="submitExercise btn btn-primary">Submit</button>
         </form>
+
       </div>
+
       <!-- End of the right main container  -->
     </div>
 

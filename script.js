@@ -1,13 +1,4 @@
-// variables to capture new program information..
-// sample exercise object.... 
-let exercise = {
-    name: "Squat",  // name of the exercise
-    startWeight: 100,  // starting weight of the exercise
-    reps: 4, // rep scheme.... default is 5.
-    sets: 3, // how many times each lift is supposed to be performed
-    increment: 10, // how many pounds to add each time object is called
-    frequency: ["Mon", "Wed", "Fri"] // days which you train Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-}
+
 
 
 // 
@@ -45,6 +36,39 @@ $('.exerciseBtn').click( () => {
 })
 
 
+
+$('.submitExercise').click( (event) => {
+        event.preventDefault();
+
+        var exercise = {
+            name: "",  // name of the exercise
+            startWeight: 100,  // starting weight of the exercise
+            reps: 5, // rep scheme.... 
+            sets: 3, // how many times each lift is supposed to be performed
+            increment: 10, // how many pounds to add each time object is called
+            frequency: [false, false, false, false, false, false] // days which you train Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+        }
+        
+        console.log('test of object: ');
+        console.log(exercise);
+
+         exercise.name = $('.exerciseName').val();
+         exercise.startWeight = $('.startWeight').val();
+         exercise.reps = $('.programReps').val();
+         exercise.sets = $('.programSets').val();
+         exercise.increment = $('.programIncrement').val();
+         exercise.frequency[0] = $('.SundayChk').is(':checked');
+         exercise.frequency[1] = $('.MondayChk').is(':checked');
+         exercise.frequency[2] = $('.TuesdayChk').is(':checked');
+         exercise.frequency[3] = $('.WednesdayChk').is(':checked');
+         exercise.frequency[4] = $('.ThursdayChk').is(':checked');
+         exercise.frequency[5] = $('.FridayChk').is(':checked');
+         exercise.frequency[6] = $('.SaturdayChk').is(':checked');
+        
+         console.log('test 2 of object: ');
+         console.log(exercise);
+         programARray.push(exercise)
+})
 
 
 
