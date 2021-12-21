@@ -1,8 +1,4 @@
-// need to look at calendar libraries and saving the dates
-// 
-// 
-
-
+// variables to capture new program information..
 // sample exercise object.... 
 let exercise = {
     name: "Squat",  // name of the exercise
@@ -14,13 +10,31 @@ let exercise = {
 }
 
 
-
+// 
+// 
 // When you click on Program Details
 $('.programDetails').click( () => {
     $('.programMainContainer').removeClass('visually-hidden');
     $('.programOptionsContainer').addClass('visually-hidden');
     $('.displayWeek').addClass('visually-hidden');
 })
+
+//
+// When you click submit in the program options menu... runs the submitProgram function
+$('.submitProgram').click( (event) => {
+        event.preventDefault();
+        let userName = $('.userName').val();
+        let programLength = $('.programLength').val();
+
+
+    $('.programMainContainer').addClass('visually-hidden');
+    $('.programOptionsContainer').removeClass('visually-hidden');
+    $('.displayWeek').removeClass('visually-hidden');
+
+    console.log('Submitted userName as: ' + userName);
+    console.log('Submitted programLength as: ' + programLength);
+})
+
 
 
 //when you click on Add Exercise...
@@ -29,6 +43,7 @@ $('.exerciseBtn').click( () => {
     $('.displayWeek').addClass('visually-hidden');
     $('.programOptionsContainer').addClass('visually-hidden');
 })
+
 
 
 
