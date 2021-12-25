@@ -1,9 +1,9 @@
-
-
+const routineArray = [] ; // this is the array that stores your list of exercises. this needs to be saved in localstorage when you save the workout routine
+var routineLocal = localStorage.getItem('routine');
 
 // 
 // 
-// When you click on Program Details
+// Main screen button when you click on Program Details
 $('.programDetails').click( () => {
     $('.programMainContainer').removeClass('visually-hidden');
     $('.programOptionsContainer').addClass('visually-hidden');
@@ -14,8 +14,8 @@ $('.programDetails').click( () => {
 // When you click submit in the program options menu... runs the submitProgram function
 $('.submitProgram').click( (event) => {
         event.preventDefault();
-        let userName = $('.userName').val();
-        let programLength = $('.programLength').val();
+        var userName = $('.userName').val();
+        var programLength = $('.programLength').val();
 
 
     $('.programMainContainer').addClass('visually-hidden');
@@ -24,11 +24,12 @@ $('.submitProgram').click( (event) => {
 
     console.log('Submitted userName as: ' + userName);
     console.log('Submitted programLength as: ' + programLength);
+
+    return userName, programLength;
 })
 
 
-
-//when you click on Add Exercise...
+// main screen button you click on Add Exercise...
 $('.exerciseBtn').click( () => {
     $('.addExerciseContainer').removeClass('visually-hidden');
     $('.displayWeek').addClass('visually-hidden');
@@ -36,9 +37,11 @@ $('.exerciseBtn').click( () => {
 })
 
 
-
+//
+//
+// When you click submit in the exercise form
 $('.submitExercise').click( (event) => {
-        event.preventDefault();
+        // event.preventDefault();
 
         var exercise = {
             name: "",  // name of the exercise
@@ -49,8 +52,8 @@ $('.submitExercise').click( (event) => {
             frequency: [false, false, false, false, false, false] // days which you train Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
         }
         
-        console.log('test of object: ');
-        console.log(exercise);
+        // console.log('test of object: ');
+        // console.log(exercise);
 
          exercise.name = $('.exerciseName').val();
          exercise.startWeight = $('.startWeight').val();
@@ -65,10 +68,45 @@ $('.submitExercise').click( (event) => {
          exercise.frequency[5] = $('.FridayChk').is(':checked');
          exercise.frequency[6] = $('.SaturdayChk').is(':checked');
         
-         console.log('test 2 of object: ');
-         console.log(exercise);
-         programARray.push(exercise)
+        routineArray.push(exercise);
+
+        console.log('current routine array is');
+        console.log(routineArray);
+
+        $('.programMainContainer').addClass('visually-hidden');
+        $('.addExerciseContainer').addClass('visually-hidden');
+        $('.programOptionsContainer').removeClass('visually-hidden');
+        $('.displayWeek').removeClass('visually-hidden');
+
+        
+
+             
 })
+
+
+$('.saveProgram').click( () => {
+    let routine = JSON.stringify(routineArray);
+
+    let date = moment();
+    date = date._d;
+
+    localStorage.setItem('name', userName);
+    localStorage.setItem('startDate', date);
+    localStorage.setItem('program', routine);
+    localStorage.setItem('programLength', programLength);
+
+})
+
+
+
+
+
+let routineRETURN = JSON.parse(localStorage.getItem('program'));
+console.log(routineRETURN);
+
+
+
+
 
 
 

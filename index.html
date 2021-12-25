@@ -24,8 +24,9 @@
 
       <!-- Start of left main container -->
       <div class="programOptionsContainer w-25 d-flex flex-column">
-        <button class="programDetails">Program Details</button>
-        <button class="exerciseBtn">Add Exercise</button>
+        <button class="programDetails btn btn-primary m-1">Program Details</button>
+        <button class="exerciseBtn btn btn-primary m-1">Add Exercise</button>
+        <button class="saveProgram btn btn-warning m-1">Save Program</button>
       </div>
       <!-- End of left main container -->
 
@@ -53,7 +54,6 @@
       <div class="displayWeek w-100 d-flex flex-row justify-content-around">
         <div class="border border-dark p-2">
           <h1>Sunday</h1>
-          <li class="list-group-item">Sample Exercise 1</li>
           <li class="list-group-item">Sample Exercise 2</li>
           <li class="list-group-item">Sample Exercise 3</li>
         </div>
@@ -98,7 +98,7 @@
       <!-- This container opens when the Add exercise button is clicked -->
       <div class="addExerciseContainer w-100 d-flex flex-column justify-content-around visually-hidden">
 
-        <form class='d-flex flex-column'>
+        <form class='mb-1 d-flex flex-column'>
             <div class="mb-3">
               <label for="exerciseName" class="form-label">Exercise Name</label>
               <input type="text" class="exerciseName form-control" id="exerciseName" required>
@@ -167,6 +167,8 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="script.js"></script>
   </body>
