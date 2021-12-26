@@ -1,6 +1,7 @@
 const routineArray = [] ; // this is the array that stores your list of exercises. this needs to be saved in localstorage when you save the workout routine
 var routineLocal = localStorage.getItem('routine');
 
+var userName, programLength
 // 
 // 
 // Main screen button when you click on Program Details
@@ -14,8 +15,8 @@ $('.programDetails').click( () => {
 // When you click submit in the program options menu... runs the submitProgram function
 $('.submitProgram').click( (event) => {
         event.preventDefault();
-        var userName = $('.userName').val();
-        var programLength = $('.programLength').val();
+        userName = $('.userName').val();
+        programLength = $('.programLength').val();
 
 
     $('.programMainContainer').addClass('visually-hidden');
@@ -25,7 +26,6 @@ $('.submitProgram').click( (event) => {
     console.log('Submitted userName as: ' + userName);
     console.log('Submitted programLength as: ' + programLength);
 
-    return userName, programLength;
 })
 
 
@@ -41,7 +41,7 @@ $('.exerciseBtn').click( () => {
 //
 // When you click submit in the exercise form
 $('.submitExercise').click( (event) => {
-        // event.preventDefault();
+         event.preventDefault();
 
         var exercise = {
             name: "",  // name of the exercise
@@ -73,12 +73,14 @@ $('.submitExercise').click( (event) => {
         console.log('current routine array is');
         console.log(routineArray);
 
+
+
         $('.programMainContainer').addClass('visually-hidden');
         $('.addExerciseContainer').addClass('visually-hidden');
         $('.programOptionsContainer').removeClass('visually-hidden');
         $('.displayWeek').removeClass('visually-hidden');
 
-        
+        $('.form-control').reset();
 
              
 })
@@ -102,6 +104,7 @@ $('.saveProgram').click( () => {
 
 
 let routineRETURN = JSON.parse(localStorage.getItem('program'));
+console.log('This is what the routine is currently saved at on page load:');
 console.log(routineRETURN);
 
 
