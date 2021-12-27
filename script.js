@@ -80,12 +80,15 @@ $('.submitExercise').click( (event) => {
         $('.programOptionsContainer').removeClass('visually-hidden');
         $('.displayWeek').removeClass('visually-hidden');
 
-        $('.form-control').reset();
+        $('.submitExercise').submit();
 
              
 })
 
 
+// 
+// 
+//  When you click the  save program button
 $('.saveProgram').click( () => {
     let routine = JSON.stringify(routineArray);
 
@@ -108,8 +111,47 @@ console.log('This is what the routine is currently saved at on page load:');
 console.log(routineRETURN);
 
 
+function displayProgram() {
+    let routineRETURN = JSON.parse(localStorage.getItem('program'));
+    
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[0]) {
+            $('.Sunday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[1]) {
+            $('.Monday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[2]) {
+            $('.Tuesday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[3]) {
+            $('.Wednesday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[4]) {
+            $('.Thursday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[5]) {
+            $('.Friday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+     for(let i = 0; i < routineRETURN.length; i++) {
+        if(routineRETURN[i].frequency[6]) {
+            $('.Saturday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        }
+    }
+}
 
-
+displayProgram();
 
 
 
