@@ -1,7 +1,7 @@
 const routineArray = [] ; // this is the array that stores your list of exercises. this needs to be saved in localstorage when you save the workout routine
 var routineLocal = localStorage.getItem('routine');
 
-var userName, programLength
+var userName, programLength;
 // 
 // 
 // Main screen button when you click on Program Details
@@ -25,6 +25,9 @@ $('.submitProgram').click( (event) => {
 
     console.log('Submitted userName as: ' + userName);
     console.log('Submitted programLength as: ' + programLength);
+
+    $('.userName').val('');
+    $('.programLength').val('');
 
 })
 
@@ -73,6 +76,19 @@ $('.submitExercise').click( (event) => {
         console.log('current routine array is');
         console.log(routineArray);
 
+        $('.exerciseName').val('');
+        $('.startWeight').val('');
+        $('.programReps').val('');
+        $('.programSets').val('');
+        $('.programIncrement').val('');
+
+        $('.SundayChk').removeAttr('checked');
+        $('.MondayChk').removeAttr('checked');
+        $('.TuesdayChk').removeAttr('checked');
+        $('.WednesdayChk').removeAttr('checked');
+        $('.ThursdayChk').removeAttr('checked');
+        $('.FridayChk').removeAttr('checked');
+        $('.SaturdayChk').removeAttr('checked');
 
 
         $('.programMainContainer').addClass('visually-hidden');
@@ -80,7 +96,6 @@ $('.submitExercise').click( (event) => {
         $('.programOptionsContainer').removeClass('visually-hidden');
         $('.displayWeek').removeClass('visually-hidden');
 
-        $('.submitExercise').submit();
 
              
 })
@@ -100,6 +115,8 @@ $('.saveProgram').click( () => {
     localStorage.setItem('program', routine);
     localStorage.setItem('programLength', programLength);
 
+    displayProgram();
+
 })
 
 
@@ -115,43 +132,17 @@ function displayProgram() {
     let routineRETURN = JSON.parse(localStorage.getItem('program'));
     
      for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[0]) {
-            $('.Sunday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
+        let exercise = routineRETURN[i];
+
+        for(let j = 0; j < exercise.frequency.length; j++) {
+            if(exercise.frequency[j]) $('#day-' + j).append('<li class="list-group-item">' + exercise.name + '</li>');
         }
     }
-     for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[1]) {
-            $('.Monday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
-        }
-    }
-     for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[2]) {
-            $('.Tuesday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
-        }
-    }
-     for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[3]) {
-            $('.Wednesday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
-        }
-    }
-     for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[4]) {
-            $('.Thursday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
-        }
-    }
-     for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[5]) {
-            $('.Friday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
-        }
-    }
-     for(let i = 0; i < routineRETURN.length; i++) {
-        if(routineRETURN[i].frequency[6]) {
-            $('.Saturday').append('<li class="list-group-item">' + routineRETURN[i].name + '</li>');
-        }
-    }
-}
+} 
 
 displayProgram();
+
+
 
 
 
