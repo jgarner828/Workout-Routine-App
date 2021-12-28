@@ -1,7 +1,8 @@
-const routineArray = [] ; // this is the array that stores your list of exercises. this needs to be saved in localstorage when you save the workout routine
-var routineLocal = localStorage.getItem('routine');
+let routineRETURN = JSON.parse(localStorage.getItem('program'));
 
 var userName, programLength;
+
+
 // 
 // 
 // Main screen button when you click on Program Details
@@ -10,6 +11,7 @@ $('.programDetails').click( () => {
     $('.programOptionsContainer').addClass('visually-hidden');
     $('.displayWeek').addClass('visually-hidden');
 })
+
 
 //
 // When you click submit in the program options menu... runs the submitProgram function
@@ -32,6 +34,7 @@ $('.submitProgram').click( (event) => {
 })
 
 
+// 
 // main screen button you click on Add Exercise...
 $('.exerciseBtn').click( () => {
     $('.addExerciseContainer').removeClass('visually-hidden');
@@ -40,9 +43,14 @@ $('.exerciseBtn').click( () => {
 })
 
 
+$('.removeExercise').click( () => {
+    // This will access the array of exercises and allow you to remove one.
+})
+
+
 //
-//
-// When you click submit in the exercise form
+// When you click submit in the exercise form   
+// TODO: need to add error checking make sure the form is completely filled and not submitting empty values.
 $('.submitExercise').click( (event) => {
          event.preventDefault();
 
@@ -71,10 +79,10 @@ $('.submitExercise').click( (event) => {
          exercise.frequency[5] = $('.FridayChk').is(':checked');
          exercise.frequency[6] = $('.SaturdayChk').is(':checked');
         
-        routineArray.push(exercise);
+        routineRETURN.push(exercise);
 
         console.log('current routine array is');
-        console.log(routineArray);
+        console.log(routineRETURN);
 
         $('.exerciseName').val('');
         $('.startWeight').val('');
@@ -82,13 +90,13 @@ $('.submitExercise').click( (event) => {
         $('.programSets').val('');
         $('.programIncrement').val('');
 
-        $('.SundayChk').removeAttr('checked');
-        $('.MondayChk').removeAttr('checked');
-        $('.TuesdayChk').removeAttr('checked');
-        $('.WednesdayChk').removeAttr('checked');
-        $('.ThursdayChk').removeAttr('checked');
-        $('.FridayChk').removeAttr('checked');
-        $('.SaturdayChk').removeAttr('checked');
+        $('.SundayChk').prop('checked', false);
+        $('.MondayChk').prop('checked', false);
+        $('.TuesdayChk').prop('checked', false);
+        $('.WednesdayChk').prop('checked', false);
+        $('.ThursdayChk').prop('checked', false);
+        $('.FridayChk').prop('checked', false);
+        $('.SaturdayChk').prop('checked', false);
 
 
         $('.programMainContainer').addClass('visually-hidden');
@@ -96,16 +104,17 @@ $('.submitExercise').click( (event) => {
         $('.programOptionsContainer').removeClass('visually-hidden');
         $('.displayWeek').removeClass('visually-hidden');
 
+        displayProgram();
+
 
              
 })
 
 
 // 
-// 
-//  When you click the  save program button
+//  When you click the save program button
 $('.saveProgram').click( () => {
-    let routine = JSON.stringify(routineArray);
+    let routine = JSON.stringify(routineRETURN);
 
     let date = moment();
     date = date._d;
@@ -115,21 +124,18 @@ $('.saveProgram').click( () => {
     localStorage.setItem('program', routine);
     localStorage.setItem('programLength', programLength);
 
-    displayProgram();
-
 })
 
 
+displayProgram();
 
 
-
-let routineRETURN = JSON.parse(localStorage.getItem('program'));
-console.log('This is what the routine is currently saved at on page load:');
-console.log(routineRETURN);
-
-
+// 
+// 
 function displayProgram() {
-    let routineRETURN = JSON.parse(localStorage.getItem('program'));
+
+    //clear the values so it starts with fresh list.
+    $("ul").empty()
     
      for(let i = 0; i < routineRETURN.length; i++) {
         let exercise = routineRETURN[i];
@@ -140,7 +146,7 @@ function displayProgram() {
     }
 } 
 
-displayProgram();
+
 
 
 
