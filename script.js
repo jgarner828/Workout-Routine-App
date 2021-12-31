@@ -43,8 +43,41 @@ $('.exerciseBtn').click( () => {
 })
 
 
+// 
+// When you click on the remove exercise button
 $('.removeExercise').click( () => {
-    // This will access the array of exercises and allow you to remove one.
+
+    $('.removeList').empty();
+
+    $('.removeExerciseContainer').removeClass('visually-hidden');
+    $('.displayWeek').addClass('visually-hidden');
+    $('.programOptionsContainer').addClass('visually-hidden');
+
+    routineRETURN.forEach(element => {
+        $('.removeList').append(`<button class="deleteBtn btn btn-primary m-1" id= "${element.name}"> ${element.name} </button>`); 
+    });
+
+})
+
+// 
+// Generated delete exercise buttons. grab ID on clicked button and remove it from the array.
+$(document).on('click', '.deleteBtn', (event) => {
+    let removeExercise = event.target.id;
+
+    for(let i = 0; i < routineRETURN.length; i++) {
+        if(removeExercise === routineRETURN[i].name) {
+            console.log('this index needs to be removed: routineRETURN' + i);
+            routineRETURN.splice(i, 1);
+            console.log(routineRETURN);
+        }
+    }
+
+    $('.removeExerciseContainer').addClass('visually-hidden');
+    $('.programOptionsContainer').removeClass('visually-hidden');
+    $('.displayWeek').removeClass('visually-hidden');
+
+    displayProgram();
+
 })
 
 
@@ -135,7 +168,7 @@ displayProgram();
 function displayProgram() {
 
     //clear the values so it starts with fresh list.
-    $("ul").empty()
+    $("ul").empty();
     
      for(let i = 0; i < routineRETURN.length; i++) {
         let exercise = routineRETURN[i];
