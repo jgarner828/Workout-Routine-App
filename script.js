@@ -3,6 +3,9 @@ let routineRETURN = JSON.parse(localStorage.getItem('program'));
 var userName, programLength;
 
 
+displayProgram();
+
+
 // 
 // 
 // Main screen button when you click on Program Details
@@ -57,7 +60,10 @@ $('.removeExercise').click( () => {
         $('.removeList').append(`<button class="deleteBtn btn btn-primary m-1" id= "${element.name}"> ${element.name} </button>`); 
     });
 
+    $('.removeList').append(`<button class="closeRemoveContainer btn btn-warning m-1"> Close </button>`); 
+
 })
+
 
 // 
 // Generated delete exercise buttons. grab ID on clicked button and remove it from the array.
@@ -66,9 +72,7 @@ $(document).on('click', '.deleteBtn', (event) => {
 
     for(let i = 0; i < routineRETURN.length; i++) {
         if(removeExercise === routineRETURN[i].name) {
-            console.log('this index needs to be removed: routineRETURN' + i);
             routineRETURN.splice(i, 1);
-            console.log(routineRETURN);
         }
     }
 
@@ -78,6 +82,15 @@ $(document).on('click', '.deleteBtn', (event) => {
 
     displayProgram();
 
+})
+
+
+// 
+// Delete Exercise container close button
+$(document).on('click', '.closeRemoveContainer', () => {
+    $('.removeExerciseContainer').addClass('visually-hidden');
+    $('.displayWeek').removeClass('visually-hidden');
+    $('.programOptionsContainer').removeClass('visually-hidden');
 })
 
 
@@ -160,7 +173,6 @@ $('.saveProgram').click( () => {
 })
 
 
-displayProgram();
 
 
 // 
@@ -174,7 +186,7 @@ function displayProgram() {
         let exercise = routineRETURN[i];
 
         for(let j = 0; j < exercise.frequency.length; j++) {
-            if(exercise.frequency[j]) $('#day-' + j).append('<li class="list-group-item">' + exercise.name + '</li>');
+            if(exercise.frequency[j]) $('#day-' + j).append(`<button class="btn btn-primary m-1" id= "${exercise.name}"> ${exercise.name} </button>`);
         }
     }
 } 
