@@ -8,6 +8,7 @@ if(!dailyROUTINE) {
 
 function displayDaily() {
 
+    // checking current day of week and setting j to the appropriate index for displaying exercises
     let today = moment();
     let todayStr = today._d;
     let todayIndex = todayStr.toString().split(" ");
@@ -15,27 +16,30 @@ function displayDaily() {
     const checkVal = todayIndex[0];
     var j;
 
-    if (checkVal === 'Sun') { 
-        var j = 0;
+    switch(checkVal){
+        case 'Sun':
+            var j = 0;
+            break;
+        case 'Mon':
+            var j = 1;
+            break;
+        case 'Tue':
+            var j = 2;
+            break;
+        case 'Wed':
+            var j = 3;
+            break;
+        case 'Thu':
+            var j = 4;
+            break;
+        case 'Fri':
+            var j = 5;
+            break;
+        case 'Sat':
+            var j = 6;
+            break;
     }
-    if (checkVal === 'Mon') { 
-        var j = 1;
-    }
-    if (checkVal === 'Tue') { 
-        var j = 2;
-    }
-    if (checkVal === 'Wed') { 
-        var j = 3;
-    }
-    if (checkVal === 'Thu') { 
-        var j = 4;
-    }
-    if (checkVal === 'Fri') { 
-        var j = 5;
-    }
-    if (checkVal === 'Sat') { 
-        var j = 6;
-    }
+
 
 
 // Loops through array checking boolean value of current day vs each exercise to make button
