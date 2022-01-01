@@ -11,16 +11,31 @@ function displayDaily() {
     let today = moment();
     let todayStr = today._d;
     let todayIndex = todayStr.toString().split(" ");
-    console.log(todayIndex[0]);
-    // TODO: convert value of j based on String match to integer equivalent...
-    // Sun = 0
-    // Mon = 1
-    // Tue = 2
-    // Wed = 3
-    // Thu = 4
-    // Fri = 5
-    // Sat = 6
-    var j = 6;
+    
+    const checkVal = todayIndex[0];
+    var j;
+
+    if (checkVal === 'Sun') { 
+        var j = 0;
+    }
+    if (checkVal === 'Mon') { 
+        var j = 1;
+    }
+    if (checkVal === 'Tue') { 
+        var j = 2;
+    }
+    if (checkVal === 'Wed') { 
+        var j = 3;
+    }
+    if (checkVal === 'Thu') { 
+        var j = 4;
+    }
+    if (checkVal === 'Fri') { 
+        var j = 5;
+    }
+    if (checkVal === 'Sat') { 
+        var j = 6;
+    }
 
 
 // Loops through array checking boolean value of current day vs each exercise to make button
