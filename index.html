@@ -31,7 +31,8 @@
       </div>
       <!-- End of left main container -->
 
-      <!-- This container opens when the Program Details button is clicked. -->
+
+      <!-- This container opens when user clicks Program Details button. -->
       <div class="programMainContainer  w-100 d-flex flex-column visually-hidden">
 
         <form class='mb-1'>
@@ -50,6 +51,7 @@
         </form>
 
       </div>
+
 
       <!-- Start of the right main container -->
       <div class="displayWeek w-100 d-flex flex-row justify-content-around">
@@ -89,33 +91,34 @@
         </div>
       </div>
 
-      <!-- This container opens when the Add exercise button is clicked -->
+
+      <!-- This container opens when user click the Add Exercise button -->
       <div class="addExerciseContainer w-100 d-flex flex-column justify-content-around visually-hidden">
 
         <form class='mb-1 d-flex flex-column'>
             <div class="mb-3">
               <label for="exerciseName" class="form-label">Exercise Name</label>
-              <input type="text" class="exerciseName form-control" id="exerciseName" required>
+              <input type="text" class="exerciseName form-control" id="exerciseName" placeholder='Must include' required>
             </div>
 
             <div class="mb-3 w-100">
               <label for="startWeight" class="form-label">Starting Weight</label>
-              <input type="number" class="startWeight form-control" id="startWeight" min='1' required>
+              <input type="number" class="startWeight form-control" id="startWeight" min='1' placeholder='Must include' required>
             </div>
 
             <div class="mb-3 w-100">
               <label for="programReps" class="form-label">Reps</label>
-              <input type="number" class="programReps form-control" id="programReps" min='1' required>
+              <input type="number" class="programReps form-control" id="programReps" min='1' placeholder='Must include' required>
             </div>
 
             <div class="mb-3 w-100">
               <label for="programSets" class="form-label">Sets</label>
-              <input type="number" class="programSets form-control" id="programSets" min='1' required>
+              <input type="number" class="programSets form-control" id="programSets" min='1' placeholder='Must include' required>
             </div>
 
             <div class="mb-3 w-100">
               <label for="programIncrement" class="form-label">Increment</label>
-              <input type="number" class="programIncrement form-control" id="programIncrement" min='1' required>
+              <input type="number" class="programIncrement form-control" id="programIncrement" min='1' placeholder='Must include' required>
             </div>
 
             <div class='weeksBoxes w-100 d-flex flex-row'>
@@ -153,12 +156,13 @@
 
       </div>
 
+      <!-- This container opens when user click the Remove Exercise button -->
       <div class="removeExerciseContainer w-100 d-flex flex-column justify-content-center visually-hidden">
-        <ul class="removeList list-group w-50"><button class='closeBtn'>Close</button></ul>
+        <ul class="removeList list-group w-50"></ul>
         
       </div>
-
       <!-- End of the right main container  -->
+
     </div>
 
     <script

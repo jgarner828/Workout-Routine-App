@@ -1,4 +1,7 @@
 let routineRETURN = JSON.parse(localStorage.getItem('program'));
+if (!routineRETURN) {
+    routineRETURN = []
+}
 
 var userName, programLength;
 
@@ -17,7 +20,7 @@ $('.programDetails').click( () => {
 
 
 //
-// When you click submit in the program options menu... runs the submitProgram function
+// When user clicks submit in the program options menu..
 $('.submitProgram').click( (event) => {
         event.preventDefault();
         userName = $('.userName').val();
@@ -38,7 +41,7 @@ $('.submitProgram').click( (event) => {
 
 
 // 
-// main screen button you click on Add Exercise...
+// main screen button user clicks on Add Exercise...
 $('.exerciseBtn').click( () => {
     $('.addExerciseContainer').removeClass('visually-hidden');
     $('.displayWeek').addClass('visually-hidden');
@@ -47,7 +50,7 @@ $('.exerciseBtn').click( () => {
 
 
 // 
-// When you click on the remove exercise button
+// When user clicks on the remove exercise button
 $('.removeExercise').click( () => {
 
     $('.removeList').empty();
@@ -95,7 +98,7 @@ $(document).on('click', '.closeRemoveContainer', () => {
 
 
 //
-// When you click submit in the exercise form   
+// When user clicks submit in the exercise form   
 // TODO: need to add error checking make sure the form is completely filled and not submitting empty values.
 $('.submitExercise').click( (event) => {
          event.preventDefault();
@@ -124,11 +127,15 @@ $('.submitExercise').click( (event) => {
          exercise.frequency[4] = $('.ThursdayChk').is(':checked');
          exercise.frequency[5] = $('.FridayChk').is(':checked');
          exercise.frequency[6] = $('.SaturdayChk').is(':checked');
-        
-        routineRETURN.push(exercise);
 
-        console.log('current routine array is');
-        console.log(routineRETURN);
+ 
+        if(exercise.name === '') {
+            console.log('need valid name');
+        } else {
+            routineRETURN.push(exercise);
+        } 
+        
+
 
         $('.exerciseName').val('');
         $('.startWeight').val('');
@@ -158,7 +165,7 @@ $('.submitExercise').click( (event) => {
 
 
 // 
-//  When you click the save program button
+//  When user clicks the save program button
 $('.saveProgram').click( () => {
     let routine = JSON.stringify(routineRETURN);
 
@@ -176,7 +183,7 @@ $('.saveProgram').click( () => {
 
 
 // 
-// 
+// Displays the exercises in week
 function displayProgram() {
 
     //clear the values so it starts with fresh list.
@@ -189,29 +196,10 @@ function displayProgram() {
             if(exercise.frequency[j]) $('#day-' + j).append(`<button class="btn btn-primary m-1" id= "${exercise.name}"> ${exercise.name} </button>`);
         }
     }
+    
+
+
 } 
 
 
 
-
-
-
-
-/* methods outline .....
-
-
-1. If there is no existing user create a user and program (2A) Otherwise skip to start program. (2B)
-
-2A. Create a user. Create a program. Start with how many weeks you want to run the program. set the program based on length with the calendar   
-    Allow user to add a new exercise object with all training data necessary. Allow list items to get moved in priority ranking. When user is satisfied, allow user to create program.
-
-2B. Load program based on day. (Possibly use moment.js?) The program checks which objects to call based on frequency (boolean value) and call them into a daily exercise array. App runs through each exercise in array allowing the user to log their actual results. If total reps is less than reps*sets value then decrease by increment and save. If total reps is more than sets*reps then increase by increment and save.
-
-3A. When program reaches end. Allow user to save objects as starting weight for new program or a reset. 
-
-Possible options...
-
-        - Let the user edit the program at any time.
-        - Track and save the total tonnage results so user can visually see progress in graph form.
-
-*/
