@@ -8,10 +8,11 @@ if(!dailyROUTINE) {
 
 function displayDaily() {
 
-    // TODO: NEED TO IMPORT MOMENT TO CHECK DAY. CHANGE DAY TO AN INDEX EQUIVALENT VALUE; THEN FILTER THROUGH EACH index of dailyROUTINE TO SEE WHICH TO DISPLAY ACCORDING TO BOOLEAN CHECK
     let today = moment();
-    console.log(today._d);
-
+    let todayStr = today._d;
+    let todayIndex = todayStr.toString().split(" ");
+    console.log(todayIndex[0]);
+    // TODO: convert value of j based on String match to integer equivalent...
     // Sun = 0
     // Mon = 1
     // Tue = 2
