@@ -1,6 +1,6 @@
 let routineRETURN = JSON.parse(localStorage.getItem('program'));
 if (!routineRETURN) {
-    routineRETURN = []
+    routineRETURN = [];
 }
 
 var userName, programLength;
@@ -99,7 +99,6 @@ $(document).on('click', '.closeRemoveContainer', () => {
 
 //
 // When user clicks submit in the exercise form   
-// TODO: need to add error checking make sure the form is completely filled and not submitting empty values.
 $('.submitExercise').click( (event) => {
          event.preventDefault();
 
