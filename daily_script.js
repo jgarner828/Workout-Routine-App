@@ -55,21 +55,13 @@ function openDailyExercise(exercise) {
 
     // search through the daily exercise to find the matching object 
     let match = dailyROUTINE.filter( (array) => array.name === `${exercise.id}` );
-    console.log(match);
 
     $('.dailyExercise').removeClass('visually-hidden');
 
     let reps = parseInt(`${match[0].reps}`);
-    console.log('reps: ' + reps);
-
     let sets = parseInt(`${match[0].sets}`);
-    console.log('sets: ' + sets);
-
-    let increment = parseInt(`${match[0].increment}`);
-    console.log('increment: ' + increment);
-
     let startWeight = parseInt(`${match[0].startWeight}`);
-    console.log('startWeight: ' + startWeight);
+
 
     let completeForm = '';
 
@@ -79,8 +71,6 @@ function openDailyExercise(exercise) {
         <label for="formGroupExampleInput">Set ${i}</label>
         <input type="text" class="form-control" id="set_${[i]}" placeholder="${startWeight} lbs for ${reps} reps.">
         </div>`;
-
-        console.log(`Looped through set_${[i]}`)
         completeForm += formItem;
     }    
     
@@ -90,13 +80,20 @@ function openDailyExercise(exercise) {
 
 // Create exercise form to be parsed in HTML
 function exerciseForm(match, form) {
-    $('.currentExercise').append(`<h1>${match[0].name}</h1> ${form}<button class ='close saveDay'>Save</button>`);
+    $('.currentExercise').append(`<h1>${match[0].name}</h1> ${form}<button id ='${match[0].name}' class ='close saveDay'>Save</button>`);
 }
 
 
 // When you click save on daily exercise form.
 function saveDailyResults(event) {
-        console.log(event);
+    let id = event.target.id;
+    let match = dailyROUTINE.filter( (array) => array.name === id);
+    let sets = match[0].sets;
+
+    for(let i = 1; i < sets; i++) {
+        // TODO: need to loop through each form element based on ID and grab the value from it.
+    }
+
 }
 
 
@@ -107,9 +104,11 @@ $(document).on('click', '.daily', (event) => {
     openDailyExercise(id)
 })
 
+
 // When user clicks save on daily exercise form
 $(document).on('click', '.saveDay', (event) => {
     event.preventDefault();
+    
     saveDailyResults(event);
     $('.dailyExercise').addClass('visually-hidden');
 })
