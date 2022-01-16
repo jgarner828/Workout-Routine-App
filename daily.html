@@ -16,12 +16,16 @@
 
   <body class='p-2'>
     <header class="d-flex flex-column justify-content-center m-xxl-5">
-      <h1>Exercise Tracking</h1>
-      <h2><a class="nav-link active" href="./index.html">Program Setup</a></h2>
+      <h1 class=' text-center'>Exercise Tracking</h1>
+      <h2><a class="nav-link active text-center" href="./index.html">Program Setup</a></h2>
     </header>
 
-    <div class="main d-flex">
-        <ul class='dailyList'></ul>
+    <div class="main container-fluid">
+        <ul class='dailyList d-flex flex-column'></ul>
+        <div class='container-fluid dailyExercise visually-hidden'>
+          <div class='currentExercise'></div>
+          </div>
+        </div>
     </div>
 
     <script

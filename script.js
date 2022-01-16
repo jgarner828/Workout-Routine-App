@@ -39,6 +39,13 @@ $('.submitProgram').click( (event) => {
 
 })
 
+$('.closeProgramContainer').click( () => {
+    $('.programMainContainer').addClass('visually-hidden');
+    $('.programOptionsContainer').removeClass('visually-hidden');
+    $('.displayWeek').removeClass('visually-hidden');
+
+
+})
 
 // 
 // main screen button user clicks on Add Exercise...
