@@ -90,10 +90,15 @@ function saveDailyResults(event) {
     let match = dailyROUTINE.filter( (array) => array.name === id);
     let sets = match[0].sets;
 
+    let updatedSets = [];
+
     for(let i = 1; i < sets; i++) {
         // TODO: need to loop through each form element based on ID and grab the value from it.
+        let newSet = $(`#set_${i}`).val();
+        updatedSets.push(newSet);
     }
 
+    // check updatedSets against the starting weight and reps. if it's higher, add the increment. if it's lower remove the decrement. if it's equal the keep the same. Push new value to array and save to local storage. 
 }
 
 
