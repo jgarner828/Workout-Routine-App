@@ -2,7 +2,13 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-  username: {
+  firstName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  lastName: {
     type: String,
     required: true,
     unique: true,
@@ -18,10 +24,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5,
-  },
-  Workout: {
-    type: Schema.Types.ObjectId,
-    ref: 'Workout',
   }
 });
 

@@ -1,13 +1,11 @@
 import React from 'react';
 
 
-export default function Main() {
-
+export default function Profile() {
 
     return (
-
             <>
-                Main
+                Inside profile and logged in
             </>
     )
 }
