@@ -24,7 +24,14 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5,
-  }
+  },
+  exercises: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Exercise'
+    }
+
+  ]
 });
 
 // set up pre-save middleware to create password
