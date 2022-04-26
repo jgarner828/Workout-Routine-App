@@ -12,6 +12,11 @@ const exerciseSchema = new Schema(
       type: Number,
       required: true
     },
+    currentWeight: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     reps: {
       type: Number,
       required: true
