@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-import '../index.css';
+import { StyledLogin } from './styles/Login.styled'
+
 
 
 
@@ -34,7 +35,7 @@ function Login(props) {
   };
 
   return (
-    <div className="login-container">
+    <StyledLogin>
       <Link to="/signup">← Go to Signup</Link>
 
       <h2>Login</h2>
@@ -68,7 +69,7 @@ function Login(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
-    </div>
+    </StyledLogin>
   );
 }
 

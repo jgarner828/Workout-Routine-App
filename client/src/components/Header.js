@@ -1,12 +1,14 @@
 import React from 'react';
-import '../index.css';
+
+import { StyledHeader } from './styles/Header.styled';
+
 
 
 export default function Header(props) {
 
     return (
-            <div className='header-container'>
-                    Header
-            </div>
+            <StyledHeader>
+                   <h1>Workout</h1>
+            </StyledHeader>
     )
 }
