@@ -8,4 +8,6 @@ Hello! This is my first attempt at creating an application. I'm a huge fitness e
 
 Project Goal: Create a mobile friendly site that plans a workout program based on your needs and inputs.
 
-Currently in development: Refactoring code into React.
+#Currently in development: 
+
+Refactoring in progress for v2.0 of app. Need to figure out a more compelling name than what currently exists.
