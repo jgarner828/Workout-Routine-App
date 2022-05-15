@@ -1,14 +1,18 @@
 import React from 'react';
+
 import { useQuery } from '@apollo/client';
 
 import { StyledProfile } from './styles/Profile.styled';
 
+import CreateRoutine from './CreateRoutine'
 
 import {QUERY_ME} from '../utils/queries'
 
 export default function Profile() {
 
     const { loading, data } = useQuery(QUERY_ME);
+
+    let routine = false;
 
 
     if (loading) {
@@ -19,7 +23,13 @@ export default function Profile() {
 
     return (
             <StyledProfile>
-                Inside profile and logged in
+                {routine ? 
+                    (<p>You have a routine</p>) 
+                    :
+                    (<p><CreateRoutine /> </p>)
+                }
+
+                <p>Inside profile and logged in</p>
             </StyledProfile>
     )
 }
