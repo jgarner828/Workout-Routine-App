@@ -19,14 +19,14 @@ export default function Profile() {
         return <h2>LOADING...</h2>;
       }
 
-    console.log(data.me)
+    // console.log(data.me)
 
     return (
             <StyledProfile>
                 {routine ? 
                     (<p>You have a routine</p>) 
                     :
-                    (<p><CreateRoutine /> </p>)
+                    (<p><CreateRoutine user={data.me} /> </p>)
                 }
 
                 <p>Inside profile and logged in</p>
