@@ -28,8 +28,6 @@ export default function Profile() {
                     :
                     (<p><CreateRoutine user={data.me} /> </p>)
                 }
-
-                <p>Inside profile and logged in</p>
             </StyledProfile>
     )
 }
