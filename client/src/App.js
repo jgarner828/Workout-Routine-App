@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Signup from './pages/Signup';
 
 
+import React, { useState } from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import {
@@ -17,6 +18,11 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import { Container } from './components/styles/Container.styled'
+
+
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/globalStyles";
+import { lightTheme, darkTheme } from "./components/Themes"
 
 
 // Construct our main GraphQL API endpoint
@@ -47,22 +53,31 @@ const client = new ApolloClient({
 
 
 function App() {
-  return (
-    <Container>
-        <ApolloProvider client={client}>
-        <Router>
-            <Header />
-            <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/signup" element={<Signup />} />
-            </Routes>
 
-            <Footer />
-      
-       
-       </Router>
-       </ApolloProvider>
-    </Container>
+  const [theme, setTheme] = useState('light');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light')
+}
+
+  return (
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles/>
+          <Container>
+              <ApolloProvider client={client}>
+                <Router>
+                    <Header />
+                      <Routes>
+                          <Route path="/" element={<Main />} />
+                          <Route path="/signup" element={<Signup />} />
+                      </Routes>
+
+                    <Footer />                      
+                    <button onClick={themeToggler}>Switch Theme</button>
+              </Router>
+            </ApolloProvider>
+          </Container>
+
+    </ThemeProvider>
   );
 }
 
