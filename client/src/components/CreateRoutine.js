@@ -1,31 +1,43 @@
 import React from "react";
 import { StyledRoutine } from "./styles/CreateRoutine.styled";
-import DailyExercises  from "./DailyExercises"
+import Schedule from "./Schedule";
 import AddExercise from "./AddExercise";
+
+import { useState } from "react";
 
 export default function CreateRoutine({user}) {
 
+    console.log(user)
 
-    const addExercise = (event) => {
-        console.log(event)
+
+    const [selectorButton, changeSelectorButton] = useState(false)
+
+
+    function changeView() {
+        selectorButton
+            ?
+            changeSelectorButton(false)
+            :
+            changeSelectorButton(true);
+
     }
 
 
-    // console.log(user)
     return (
         <StyledRoutine>
-            <h2>Create your routine {user.firstName}</h2>
-            <ul>
-                <DailyExercises day='Sunday' />
-                <DailyExercises day='Monday' />
-                <DailyExercises day='Tuesday' />
-                <DailyExercises day='Wednesday' />
-                <DailyExercises day='Thursday' />
-                <DailyExercises day='Friday' />
-                <DailyExercises day='Saturday' />
-            </ul>
-            <AddExercise />
-            <button onClick={addExercise}>add exercise</button>
+
+            {
+            selectorButton 
+            ? 
+            (<AddExercise />)
+            :
+            (<Schedule />)
+            }
+
+        <button onClick={changeView}>Switch between schedule and add exercise</button>
+
+
+
         </StyledRoutine>
     )
 }

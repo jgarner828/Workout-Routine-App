@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 
 export default function AddExercise(props) {
+
+
   const [formState, setFormState] = useState({
                                             exercise: '',
                                             startingWeight: 0,
@@ -10,6 +12,8 @@ export default function AddExercise(props) {
                                             increment: 0,
                                             days: [false, false, false, false, false, false, false]
                                             });
+
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -36,6 +40,9 @@ export default function AddExercise(props) {
     });
   };
 
+
+
+  
   return (
       <form>
         <div className="flex-row space-between my-2">
