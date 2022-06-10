@@ -10,4 +10,4 @@ Project Goal: Create a mobile friendly site that plans a workout program based o
 
 # Currently in development
 
-Refactoring in progress for v2.0 of app. Need to figure out a more compelling name than what currently exists. Working on cleaner UI for client side. Working on modularization of logic for easier version updates and maintainability.
+Refactoring in progress for v2.0 of app. Need to figure out a more compelling name than what currently exists. Working on cleaner UI for client side. Working on modularization of logic for easier version updates and maintainability. Check out dev branch!
