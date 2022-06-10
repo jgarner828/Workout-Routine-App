@@ -1,6 +1,7 @@
 import React from "react";
 import { StyledRoutine } from "./styles/CreateRoutine.styled";
 import DailyExercises  from "./DailyExercises"
+import AddExercise from "./AddExercise";
 
 export default function CreateRoutine({user}) {
 
@@ -23,6 +24,7 @@ export default function CreateRoutine({user}) {
                 <DailyExercises day='Friday' />
                 <DailyExercises day='Saturday' />
             </ul>
+            <AddExercise />
             <button onClick={addExercise}>add exercise</button>
         </StyledRoutine>
     )
