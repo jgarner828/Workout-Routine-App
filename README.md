@@ -20,4 +20,4 @@ Server side goals: Connect server with AWS cloud. Working on modularization of l
 
 # Future development
 
-Allow for additional programming styles for exercises.
+Allow for more ecomplex configuration for exercise progression.
