@@ -24,9 +24,9 @@ export default function Profile() {
     return (
             <StyledProfile>
                 {routine ? 
-                    (<p>You have a routine</p>) 
+                    (<>You have a routine</>) 
                     :
-                    (<p><CreateRoutine user={data.me} /> </p>)
+                    (<CreateRoutine user={data.me} />)
                 }
             </StyledProfile>
     )

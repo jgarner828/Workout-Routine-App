@@ -1,15 +1,19 @@
 import React from "react";
 import { StyledRoutine } from "./styles/CreateRoutine.styled";
-
 import DailyExercises  from "./DailyExercises"
 
 export default function CreateRoutine({user}) {
 
 
-    console.log(user)
+    const addExercise = (event) => {
+        console.log(event)
+    }
+
+
+    // console.log(user)
     return (
         <StyledRoutine>
-            <h1>Create your routine {user.firstName}</h1>
+            <h2>Create your routine {user.firstName}</h2>
             <ul>
                 <DailyExercises day='Sunday' />
                 <DailyExercises day='Monday' />
@@ -19,7 +23,7 @@ export default function CreateRoutine({user}) {
                 <DailyExercises day='Friday' />
                 <DailyExercises day='Saturday' />
             </ul>
-            <button>add exercise</button>
+            <button onClick={addExercise}>add exercise</button>
         </StyledRoutine>
     )
 }
