@@ -14,6 +14,27 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.text};
     }
 
-    
+    button {
+      margin: 1rem;
+    }
+
+    .form-item{
+      margin: 1rem;
+    }
+
+    .form-check {
+      margin: 1rem;
+    }
+
+    .weeksBoxes {
+      display: flex;
+      flex-align: row;
+    }
+
+    .add-exercise-form {
+      border: solid 5px blue;
+      border-radius: 25px;
+    }
+
   }
   `
